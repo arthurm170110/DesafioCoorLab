@@ -33,6 +33,7 @@
     #calc-icon {
         width: 25px;
         margin-right: 10px;
+        filter: invert(1);
     }
 
     h1{
