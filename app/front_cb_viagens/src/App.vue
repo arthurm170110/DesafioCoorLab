@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="componente">
     <Navbar/>
     <Sidebar/>
     <router-view/>
@@ -26,6 +26,11 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+  }
+
+  .componente {
+    width: 100%;
+    height: 100%;
   }
 
   h1 {

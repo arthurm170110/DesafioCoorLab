@@ -1,9 +1,9 @@
 <template>
-<div>
+<div class="componente">
   <Title/>
   <div id="box-home">
-    <Form @formSubmitted="updateData"/>
-    <Information :city="city" :date="date"/>
+    <Form @formSubmitted="updateData" @dataSubmitted="dataFastCheap"/>
+    <Information :city="city" :date="date" :fastest="fastest" :cheapest="cheapest"/>
   </div>
 </div> 
 </template>
@@ -23,13 +23,20 @@
     data() {
       return {
         city: '',
-        date: ''
+        date: '',
+        fastest: null,
+        cheapest: null,
       }
     },
     methods: {
       updateData(data) {
         this.city = data.city
         this.date = data.date
+      },
+      dataFastCheap(data) {
+        this.fastest = data.fastest
+        this.cheapest = data.cheapest
+
       }
     }
   }
@@ -44,8 +51,8 @@
     margin-left: 400px;
     min-height: 400px;
     border-radius: 2px;
-      display: flex;
-      align-items: center;
+    display: flex;
+    align-items: center;
   }
 
   #return {

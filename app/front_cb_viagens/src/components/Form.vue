@@ -1,5 +1,5 @@
 <template>
-    <div id="form">
+    <div id="form" class="componente">
         <div id="form-text">
             <img src="img/dinheiro-na-entrega.png" id="hand-icon">
             <h1>Calcule o Valor da Viagem</h1>
@@ -9,11 +9,8 @@
                 <div class="input-container">
                     <label for="destiny">Destino</label>
                     <select name="destiny" id="destiny" v-model="city">
-                        <option value="São Paulo">São Paulo</option>
-                        <option value="Rio de Janeiro">Rio de Janeiro</option>
-                        <option value="Belo Horizonte">Belo Horizonte</option>
-                        <option value="Curitiba">Curitiba</option>
-                        <option value="Porto Alegre">Porto Alegre</option>
+                        <option value="">Selecione o destino</option>
+                        <option v-for="city in uniqueCities" :key="city" :value="city">{{ city }}</option>
                     </select>
                 </div>
                 <div class="input-container">
@@ -42,7 +39,11 @@
             return {
                 city: '',
                 date: '',
-                showModal: false
+                showModal: false,
+                transports: null,
+                uniqueCities: [],
+                fastest: null,
+                cheapest: null,
             }
         },
         methods: {
@@ -51,8 +52,32 @@
                     this.showModal = true
                 } else {
                     this.$emit('formSubmitted', { city: this.city, date: this.date });
+                    this.getFastCheap();
                 }
+            },
+            async getTranports() {
+                const response = await fetch('http://localhost:3000/transport/');
+                const data = await response.json();
+
+                this.transports = data;
+
+                this.uniqueCities = data.reduce((unique, item) => {
+                    return unique.includes(item.city) ? unique : [...unique, item.city];
+                }, []).sort();
+            },
+            async getFastCheap(){
+                const response = await fetch(`http://localhost:3000/transport/city/${this.city}/`);
+                const data = await response.json();
+
+                this.fastest = data.fastest;
+                this.cheapest = data.cheapest;
+
+                this.$emit('dataSubmitted', { fastest: this.fastest, cheapest: this.cheapest });
+                
             }
+        },
+        mounted() {
+            this.getTranports();
         }
     }
 </script>
@@ -85,7 +110,7 @@
     label{
         font-weight: bold;
         font-size: 15px;
-        color: #999999;
+        color: #2c2c44;
         margin-bottom: 10px;
     }
 
@@ -123,6 +148,12 @@
     #hand-icon {
         width: 25px;
         margin-right: 5px;
+    }
+
+    option {
+        color: #999999;
+        font-size: 15px;
+        font-family: Helvetica;
     }
 
 </style>

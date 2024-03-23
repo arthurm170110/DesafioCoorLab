@@ -1,5 +1,5 @@
 <template>
-    <div id="information">
+    <div id="information" class="componente">
         <div v-if="!city || !date" id="message">
             <h2>Nenhum dado selecionado.</h2>
         </div>
@@ -9,38 +9,38 @@
             <div class="block">
                <img src="img/dinheiro-na-entrega.png" id="hand2-icon"> 
             </div>
-            <div class="block-text">
+            <div class="block-text" v-if="fastest">
                 <br>
-                <p1>TG Transportes</p1>
+                <p1 >{{ fastest.name }}</p1>
                 <br>
-                <p2>Leito: 13 Completo</p2>
+                <p2>Leito: {{ fastest.bed }}</p2>
                 <br>
-                <p2>Tempo estimado: 6h</p2>
+                <p2>Tempo estimado: {{ fastest.duration }}</p2>
             </div>
-            <div class="block-price">
+            <div class="block-price" v-if="fastest">
                 <br>
                 <p3>Preço</p3>
                 <br>
                 <br>
-                <p4>R$ 1.250,00</p4>
+                <p4>{{ fastest.price_confort }}</p4>
             </div>
             <div class="block">
                 <img src="img/relogio.png" id="clock-icon">
             </div>
-            <div class="block-text">
+            <div class="block-text" v-if="cheapest">
                 <br>
-                <p1>Pássaro Ver</p1>
+                <p1>{{ cheapest.name }}</p1>
                 <br>
-                <p2>Pltrona: 2 convencional</p2>
+                <p2>Poltrona: {{ cheapest.seat }}</p2>
                 <br>
-                <p2>Tempo estimado: 6h</p2>
+                <p2>Tempo estimado: {{ cheapest.duration }}</p2>
             </div>
-            <div class="block-price">
+            <div class="block-price" v-if="cheapest">
                 <br>
                 <p3>Preço</p3>
                 <br>
                 <br>
-                <p4>R$ 650,00</p4>
+                <p4>{{ cheapest.price_econ }}</p4>
             </div>
             <button @click="reloadPage">Limpar</button>
       </div>
@@ -50,7 +50,7 @@
 <script>
     export default {
         name: 'Information',
-        props: ['city', 'date'],
+        props: ['city', 'date', 'fastest', 'cheapest'],
         data() {
             return {
                 showMessage: true,
@@ -59,8 +59,8 @@
         methods: {
             reloadPage() {
                 location.reload();
-            }
-        }
+            },
+        },
     }
 </script>
 
