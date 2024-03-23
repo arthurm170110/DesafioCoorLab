@@ -1,7 +1,7 @@
 <template>
     <div id="titulo-home">
       <div id="titulo">
-            <img src="img/caminhao-de-entrega.png" id="car-icon">
+            <img src="img/delivery-truck.png" id="car-icon">
             <h1>Calculadora de Viagem</h1>
       </div>
   </div>

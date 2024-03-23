@@ -1,7 +1,7 @@
 <template>
     <div id="form" class="componente">
         <div id="form-text">
-            <img src="img/dinheiro-na-entrega.png" id="hand-icon">
+            <img src="img/money-delivery.png" id="hand-icon">
             <h1>Calcule o Valor da Viagem</h1>
         </div>
         <div>

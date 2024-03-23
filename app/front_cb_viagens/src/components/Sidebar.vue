@@ -1,7 +1,7 @@
 <template>
     <div id="sidebar">
         <div id="icon-text">
-            <img src="img/calculadora.png" id="calc-icon">
+            <img src="img/calculator.png" id="calc-icon">
             <h1>Calculadora de Viagem</h1>
         </div>
     </div>

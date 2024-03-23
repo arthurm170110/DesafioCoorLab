@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # Entrando na pasta do backend
-cd app/api_cb_viagens
+cd DesafioCoorLab/app/api_cb_viagens
 
 # Criando um ambiente virtual para o backend e suas dependencias
 python -m venv venv
 
 # Ativando o ambiente virtual
-venv/Scripts/activate
+source venv/bin/activate
 
 # Instalando as dependencias do backend
 pip install -r requirements.txt

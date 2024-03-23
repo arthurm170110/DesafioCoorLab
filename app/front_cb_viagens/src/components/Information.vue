@@ -7,7 +7,7 @@
             <h3>Estas são as melhores alternativas de</h3>
             <h4>viagem para a data selecionada</h4>
             <div class="block">
-               <img src="img/dinheiro-na-entrega.png" id="hand2-icon"> 
+               <img src="img/money-delivery.png" id="hand2-icon"> 
             </div>
             <div class="block-text" v-if="fastest">
                 <br>
@@ -25,7 +25,7 @@
                 <p4>{{ fastest.price_confort }}</p4>
             </div>
             <div class="block">
-                <img src="img/relogio.png" id="clock-icon">
+                <img src="img/clock.png" id="clock-icon">
             </div>
             <div class="block-text" v-if="cheapest">
                 <br>
