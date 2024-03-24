@@ -22,5 +22,16 @@ python manage.py runserver 3000 &
 # Entrando na pasta do frontend
 cd ../front_cb_viagens
 
+echo "Instalando algumas dependencias, aguarde..."
+
+# Instalando o vue/cli
+npm install @vue/cli
+
 # Iniciando o servidor do frontend
-npm run serve
+npm run serve &
+
+# Esperando 5 segundos
+sleep 5
+
+# Abrindo o navegador
+xdg-open http://localhost:8080
