@@ -1,10 +1,8 @@
 <template>
     <div id="container">
         <div id="navbar">
-            <router-link to="/" id="logo-url">
-                <img src="img/logo.png" alt="Logo" id="logo">
-            </router-link>  
-            </div>
+            <img src="img/logo.png" alt="Logo" id="logo"> 
+        </div>
         <div id="nav">
         </div> 
     </div>
@@ -36,12 +34,9 @@
         width: 22%;
     }
 
-    #logo-url {
-        margin: auto;
-        margin-left: 0;
-    }
-
     #logo {
         width: 175px;
+        margin: auto;
+        margin-left: 0;
     }
 </style>
