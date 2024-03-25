@@ -13,11 +13,11 @@ source venv/bin/activate
 pip install -r requirements.txt
 
 # Executando as migrações do banco de dados
-python manage.py makemigrations
-python manage.py migrate
+python3 manage.py makemigrations
+python3 manage.py migrate
 
 # Iniciando o servidor do backend
-python manage.py runserver 3000 &
+python3 manage.py runserver 3000 &
 
 # Entrando na pasta do frontend
 cd ../front_cb_viagens
